@@ -2,15 +2,6 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-/*
-All sets of children should be sorted from smallest to largest, going left to right.
-For example, for max heap with arity 4:
-[9, 4, 6, 7, 8, 1, 2, 3]
-
-When adding a new element 5:
-[9, 4, 6, 7, 8, 1, 2, 3, 5] --(sift up)--> [9, 5, 6, 7, 8, 1, 2, 3, 4]
- */
-
 public class MaxHeapArity<T extends Comparable<? super T>> {
     private final ArrayList<T> heap;
     private Comparator<T> comparator;
