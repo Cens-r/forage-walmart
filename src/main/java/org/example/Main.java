@@ -14,10 +14,10 @@ public class Main {
         heap.insert(9);
         heap.print();
 
-        heap.pop();
+        heap.popMax();
         heap.print();
 
-        heap.pop();
+        heap.popMax();
         heap.print();
     }
 }

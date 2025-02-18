@@ -1,7 +1,6 @@
 package org.example;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.NoSuchElementException;
 
 /*
 All sets of children should be sorted from smallest to largest, going left to right.
@@ -84,10 +83,6 @@ public class MaxHeapArity<T extends Comparable<? super T>> {
         }
     }
 
-    public boolean isEmpty() {
-        return heap.isEmpty();
-    }
-
     public void insert(T value) throws NullPointerException {
         if (value == null) {
             throw new NullPointerException("Given `value` must be non-null!");
@@ -96,20 +91,18 @@ public class MaxHeapArity<T extends Comparable<? super T>> {
         siftUp(heap.size() - 1);
     }
 
-    public T pop() throws NoSuchElementException {
-        if (heap.isEmpty()) {
-            throw new NoSuchElementException("Heap is empty!");
-        }
-
+    public T popMax() {
         T maxValue = heap.get(0);
 
-        int lastIndex = heap.size() - 1;
-        heap.set(0, heap.get(lastIndex));
-        heap.remove(lastIndex);
-
+        T lastValue = heap.remove(heap.size() - 1);
+        heap.set(0, lastValue);
         siftDown(0);
 
         return maxValue;
+    }
+
+    public boolean isEmpty() {
+        return heap.isEmpty();
     }
 
     public void print() {
